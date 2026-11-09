@@ -3,7 +3,12 @@
 // found in the LICENSE file.
 
 #import "BetterPlayerPlugin.h"
+#if __has_include(<better_player/better_player-Swift.h>)
 #import <better_player/better_player-Swift.h>
+#else
+// Swift Package Manager builds the Swift sources as a separate module.
+@import better_player_cache;
+#endif
 
 #if !__has_feature(objc_arc)
 #error Code Requires ARC.
