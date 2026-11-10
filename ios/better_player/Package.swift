@@ -15,10 +15,12 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "FlutterFramework", path: "../FlutterFramework"),
-        // Same libraries and versions as the podspec. GCDWebServer comes from
-        // yene's repository, which keeps the 3.5.x code and adds a Swift
-        // package. The HLS proxy's own Package.swift only declares these
-        // dependencies in the AlexanderSimakov fork.
+        // The same libraries as the podspec, which pins only Cache. The other
+        // lower bounds are the versions CocoaPods resolves (PINCache 3.0.4,
+        // GCDWebServer 3.5.4). GCDWebServer comes from yene's repository,
+        // which keeps the 3.5.x code and adds a Swift package. The HLS proxy's
+        // own Package.swift only declares these dependencies in the
+        // AlexanderSimakov fork.
         .package(url: "https://github.com/hyperoslo/Cache.git", .upToNextMinor(from: "6.0.0")),
         .package(url: "https://github.com/yene/GCDWebServer.git", .upToNextMajor(from: "3.5.7")),
         .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.4")),
